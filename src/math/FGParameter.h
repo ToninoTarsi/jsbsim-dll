@@ -36,11 +36,13 @@ INCLUDES
 
 #include "FGJSBBase.h"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_PARAMETER "$Id: FGParameter.h,v 1.6 2011/04/05 20:20:21 andgi Exp $"
+#define ID_PARAMETER "$Id: FGParameter.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -60,7 +62,7 @@ CLASS DOCUMENTATION
 DECLARATION: FGParameter
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGParameter : public FGJSBBase
+class JSBSIM_API FGParameter : public FGJSBBase
 {
 public:
   virtual ~FGParameter(void) {};

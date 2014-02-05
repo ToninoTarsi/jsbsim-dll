@@ -39,11 +39,13 @@ INCLUDES
 #include <iostream>
 #include <fstream>
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_XMLFILEREAD "$Id: FGXMLFileRead.h,v 1.9 2013/12/01 14:33:51 bcoconni Exp $"
+#define ID_XMLFILEREAD "$Id: FGXMLFileRead.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -51,7 +53,7 @@ FORWARD DECLARATIONS
 
 namespace JSBSim {
 
-class FGXMLFileRead {
+class JSBSIM_API FGXMLFileRead {
 public:
   FGXMLFileRead(void) {}
   ~FGXMLFileRead(void) {}

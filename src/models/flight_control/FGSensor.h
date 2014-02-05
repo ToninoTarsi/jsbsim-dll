@@ -40,11 +40,13 @@ INCLUDES
 #include "FGFCSComponent.h"
 #include <string>
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_SENSOR "$Id: FGSensor.h,v 1.24 2014/01/02 21:58:42 bcoconni Exp $"
+#define ID_SENSOR "$Id: FGSensor.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -124,14 +126,14 @@ The delay element can specify a frame delay. The integer number provided is
 the number of frames to delay the output signal.
 
 @author Jon S. Berndt
-@version $Revision: 1.24 $
+@version $Revision: 16671 $
 */
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGSensor  : public FGFCSComponent
+class JSBSIM_API FGSensor  : public FGFCSComponent
 {
 public:
   FGSensor(FGFCS* fcs, Element* element);

@@ -42,11 +42,13 @@ INCLUDES
 #include <string>
 #include <vector>
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_FCSCOMPONENT "$Id: FGFCSComponent.h,v 1.25 2014/01/02 21:58:42 bcoconni Exp $"
+#define ID_FCSCOMPONENT "$Id: FGFCSComponent.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -82,7 +84,7 @@ CLASS DOCUMENTATION
     - FGAngle
 
     @author Jon S. Berndt
-    @version $Id: FGFCSComponent.h,v 1.25 2014/01/02 21:58:42 bcoconni Exp $
+    @version $Id: FGFCSComponent.h 16671 2014-01-07 12:06:05Z dolan.paul $
     @see Documentation for the FGFCS class, and for the configuration file class
 */
 
@@ -90,7 +92,7 @@ CLASS DOCUMENTATION
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGFCSComponent : public FGJSBBase
+class JSBSIM_API FGFCSComponent : public FGJSBBase
 {
 public:
   /// Constructor

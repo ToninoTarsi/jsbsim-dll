@@ -43,13 +43,14 @@ INCLUDES
 #include "models/propulsion/FGForce.h"
 #include "math/FGColumnVector3.h"
 #include "math/LagrangeMultiplier.h"
-#include "FGSurface.h"
+
+#include "JSBSimLib.h"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_LGEAR "$Id: FGLGear.h,v 1.64 2014/01/28 09:42:21 ehofman Exp $"
+#define ID_LGEAR "$Id: FGLGear.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -178,7 +179,7 @@ CLASS DOCUMENTATION
         </contact>
 @endcode
     @author Jon S. Berndt
-    @version $Id: FGLGear.h,v 1.64 2014/01/28 09:42:21 ehofman Exp $
+    @version $Id: FGLGear.h 16671 2014-01-07 12:06:05Z dolan.paul $
     @see Richard E. McFarland, "A Standard Kinematic Model for Flight Simulation at
      NASA-Ames", NASA CR-2497, January 1975
     @see Barnes W. McCormick, "Aerodynamics, Aeronautics, and Flight Mechanics",
@@ -191,7 +192,7 @@ CLASS DOCUMENTATION
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGLGear : protected FGSurface, public FGForce
+class JSBSIM_API FGLGear : public FGForce
 {
 public:
   struct Inputs {
@@ -237,10 +238,8 @@ public:
   /// Destructor
   ~FGLGear();
 
-  /** The Force vector for this gear
-      @param surface another surface to interact with, set to NULL for none.
-   */
-  const FGColumnVector3& GetBodyForces(FGSurface *surface = NULL);
+  /// The Force vector for this gear
+  const FGColumnVector3& GetBodyForces(void);
 
   /// Gets the location of the gear in Body axes
   FGColumnVector3 GetBodyLocation(void) const {
@@ -323,7 +322,8 @@ public:
 
 private:
   int GearNumber;
-  static const FGMatrix33 Tb2s, Ts2b;
+  static const FGMatrix33 Tb2s;
+  static const FGMatrix33 Ts2b;
   FGMatrix33 mTGear;
   FGColumnVector3 vLocalGear;
   FGColumnVector3 vWhlVelVec, vGroundWhlVel;     // Velocity of this wheel
@@ -336,7 +336,7 @@ private:
   double bDampRebound;
   double compressLength;
   double compressSpeed;
-  double rollingFCoeff;
+  double staticFCoeff, dynamicFCoeff, rollingFCoeff;
   double Stiffness, Shape, Peak, Curvature; // Pacejka factors
   double BrakeFCoeff;
   double maxCompLen;

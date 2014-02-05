@@ -3,7 +3,7 @@
 
   File:        {file}
   Author:      {author}
-  CVS Version: $Id: aircraft_template.xml,v 1.2 2003/10/18 13:21:26 ehofman Exp $
+  CVS Version: $Id: aircraft_template.xml 16671 2014-01-07 12:06:05Z dolan.paul $
 
   Function: {function}
   Notes:    {notes}

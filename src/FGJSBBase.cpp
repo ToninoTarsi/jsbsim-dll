@@ -44,8 +44,8 @@ INCLUDES
 
 namespace JSBSim {
 
-IDENT(IdSrc,"$Id: FGJSBBase.cpp,v 1.38 2014/01/13 10:45:59 ehofman Exp $");
-IDENT(IdHdr,ID_JSBBASE);
+static const char *IdSrc = "$Id: FGJSBBase.cpp 16671 2014-01-07 12:06:05Z dolan.paul $";
+static const char *IdHdr = ID_JSBBASE;
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS IMPLEMENTATION

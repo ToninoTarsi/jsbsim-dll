@@ -74,7 +74,7 @@ INCLUDES
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_FGTRIMANALYSIS "$Id: FGTrimAnalysis.h,v 1.8 2009/10/02 10:30:09 jberndt Exp $"
+#define ID_FGTRIMANALYSIS "$Id: FGTrimAnalysis.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 #if defined(_WIN32) && !defined(__CYGWIN__)
   #define snprintf _snprintf
@@ -117,7 +117,7 @@ CLASS DOCUMENTATION
     @endcode
 
     @author Agostino De Marco
-    @version "$Id: FGTrimAnalysis.h,v 1.8 2009/10/02 10:30:09 jberndt Exp $"
+    @version "$Id: FGTrimAnalysis.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 */
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

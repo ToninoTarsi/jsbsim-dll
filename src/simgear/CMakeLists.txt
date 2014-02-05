@@ -6,5 +6,3 @@ add_subdirectory(xml)
 
 set(JSBSIM_SIMGEAR_HDR compiler.h)
 
-install(FILES ${JSBSIM_SIMGEAR_HDR} DESTINATION include/JSBSim/simgear)
-

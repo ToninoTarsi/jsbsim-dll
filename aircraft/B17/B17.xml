@@ -7,7 +7,7 @@
   <fileheader>
     <author> Aeromatic v 0.9, refined by Jon Berndt </author>
     <filecreationdate> 2008-12-22 </filecreationdate>
-    <version>$Revision: 1.8 $</version>
+    <version>$Revision: 16671 $</version>
     <description> Models a Boeing B-17G. </description>
       <note>
         This model was created using publicly available data, publicly available

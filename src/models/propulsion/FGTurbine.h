@@ -42,7 +42,9 @@ INCLUDES
 
 #include "FGEngine.h"
 
-#define ID_TURBINE "$Id: FGTurbine.h,v 1.22 2011/08/04 13:45:42 jberndt Exp $"
+#include "JSBSimLib.h"
+
+#define ID_TURBINE "$Id: FGTurbine.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -150,14 +152,14 @@ CLASS DOCUMENTATION
     /engine/direct.xml
 </pre>
     @author David P. Culp
-    @version "$Id: FGTurbine.h,v 1.22 2011/08/04 13:45:42 jberndt Exp $"
+    @version "$Id: FGTurbine.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 */
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGTurbine : public FGEngine
+class JSBSIM_API FGTurbine : public FGEngine
 {
 public:
   /** Constructor

@@ -39,11 +39,13 @@ INCLUDES
 #include "FGParameter.h"
 #include "input_output/FGPropertyManager.h"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_FUNCTION "$Id: FGFunction.h,v 1.31 2013/06/20 04:37:27 jberndt Exp $"
+#define ID_FUNCTION "$Id: FGFunction.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -696,7 +698,7 @@ DECLARATION: FGFunction
 
 // Todo: Does this class need a copy constructor, like FGLGear?
 
-class FGFunction : public FGParameter
+class JSBSIM_API FGFunction : public FGParameter
 {
 public:
 

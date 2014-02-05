@@ -42,11 +42,13 @@ INCLUDES
 #include "input_output/net_fdm.hxx"
 #include "input_output/FGfdmSocket.h"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_OUTPUTSOCKET "$Id: FGOutputSocket.h,v 1.3 2013/01/12 18:08:40 bcoconni Exp $"
+#define ID_OUTPUTSOCKET "$Id: FGOutputSocket.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -69,7 +71,7 @@ CLASS DOCUMENTATION
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGOutputSocket : public FGOutputType
+class JSBSIM_API FGOutputSocket : public FGOutputType
 {
 public:
   /** Constructor. */

@@ -47,17 +47,17 @@ using std::min;
 using std::max;
 
 #include "input_output/string_utilities.h"
+#include "JSBSimLib.h"
 
 #ifndef M_PI
 #  define M_PI 3.14159265358979323846
 #endif
-#define IDENT(a,b)	 static const char* const (a)[] = {b,(a)[0]}
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_JSBBASE "$Id: FGJSBBase.h,v 1.39 2014/01/13 10:45:59 ehofman Exp $"
+#define ID_JSBBASE "$Id: FGJSBBase.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -73,14 +73,14 @@ CLASS DOCUMENTATION
 *   This class provides universal constants, utility functions, messaging
 *   functions, and enumerated constants to JSBSim.
     @author Jon S. Berndt
-    @version $Id: FGJSBBase.h,v 1.39 2014/01/13 10:45:59 ehofman Exp $
+    @version $Id: FGJSBBase.h 16671 2014-01-07 12:06:05Z dolan.paul $
 */
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGJSBBase {
+class JSBSIM_API FGJSBBase {
 public:
   /// Constructor for FGJSBBase.
   FGJSBBase() {};

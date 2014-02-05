@@ -23,10 +23,12 @@
 #include <limits>
 #include <cstddef>
 
+#include "JSBSimLib.h"
+
 namespace JSBSim
 {
 
-class FGNelderMead
+class JSBSIM_API FGNelderMead
 {
 public:
     class Function

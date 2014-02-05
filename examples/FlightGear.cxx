@@ -18,7 +18,7 @@
 // along with this program; if not, write to the Free Software
 // Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301, USA.
 //
-// $Id: FlightGear.cxx,v 1.15 2014/01/28 09:42:20 ehofman Exp $
+// $Id: FlightGear.cxx,v 1.9 2013/09/28 16:00:40 bcoconni Exp $
 
 
 #ifdef HAVE_CONFIG_H
@@ -36,7 +36,6 @@
 #include <simgear/math/sg_geodesy.hxx>
 #include <simgear/misc/sg_path.hxx>
 #include <simgear/structure/commands.hxx>
-#include <simgear/bvh/BVHMaterial.hxx>
 
 #include <FDM/flight.hxx>
 
@@ -182,8 +181,10 @@ FGJSBsim::FGJSBsim( double dt )
             FGJSBBase::debug_lvl = 0x1f;
             break;
         case SG_DEBUG:
-            FGJSBBase::debug_lvl = 0x1f;
+            FGJSBBase::debug_lvl = 0x0f;
         case SG_INFO:
+            FGJSBBase::debug_lvl = 0x01;
+            break;
         case SG_WARN:
         case SG_ALERT:
             FGJSBBase::debug_lvl = 0x00;
@@ -759,9 +760,9 @@ bool FGJSBsim::copy_from_JSBsim()
                            Propagate->GetVel(FGJSBBase::eEast),
                            Propagate->GetVel(FGJSBBase::eDown) );
 
-    _set_Velocities_Body( Propagate->GetUVW(1),
-                          Propagate->GetUVW(2),
-                          Propagate->GetUVW(3) );
+    _set_Velocities_Wind_Body( Propagate->GetUVW(1),
+                               Propagate->GetUVW(2),
+                               Propagate->GetUVW(3) );
 
     // Make the HUD work ...
     _set_Velocities_Ground( Propagate->GetVel(FGJSBBase::eNorth),
@@ -1123,9 +1124,9 @@ void FGJSBsim::set_Velocities_Local( double north, double east, double down )
   FGInterface::set_Velocities_Local(north, east, down);
 }
 
-void FGJSBsim::set_Velocities_Body( double u, double v, double w)
+void FGJSBsim::set_Velocities_Wind_Body( double u, double v, double w)
 {
-  SG_LOG(SG_FLIGHT,SG_INFO, "FGJSBsim::set_Velocities_Body: "
+  SG_LOG(SG_FLIGHT,SG_INFO, "FGJSBsim::set_Velocities_Wind_Body: "
      << u << ", " <<  v << ", " <<  w );
 
   if (needTrim) {
@@ -1139,7 +1140,7 @@ void FGJSBsim::set_Velocities_Body( double u, double v, double w)
     Propagate->SetUVW(3, w);
   }
 
-  FGInterface::set_Velocities_Body(u, v, w);
+  FGInterface::set_Velocities_Wind_Body(u, v, w);
 }
 
 //Euler angles
@@ -1331,47 +1332,15 @@ FGJSBsim::get_agl_ft(double t, const double pt[3], double alt_off,
                      double contact[3], double normal[3], double vel[3],
                      double angularVel[3], double *agl)
 {
-  const simgear::BVHMaterial* material;
-  simgear::BVHNode::Id id;
-  if (!FGInterface::get_agl_ft(t, pt, alt_off, contact, normal, vel,
-                               angularVel, material, id))
-    return false;
-
-  SGGeod geodPt = SGGeod::fromCart(SG_FEET_TO_METER*SGVec3d(pt));
-  SGQuatd hlToEc = SGQuatd::fromLonLat(geodPt);
-  *agl = dot(hlToEc.rotate(SGVec3d(0, 0, 1)), SGVec3d(contact) - SGVec3d(pt));
-
-  static SGPropertyNode_ptr terrain = fgGetNode("/sim/fdm/surface", true);
-
-#ifdef JSBSIM_USE_GROUNDREACTIONS
-  bool terrain_active = (terrain->getIntValue("override-level", -1) > 0) ? false : true;
-  terrain->setBoolValue("active", terrain_active);
-  terrain->setBoolValue("valid", (material && terrain_active) ? true : false);
-  if (terrain_active)
-  {
-    static bool material_valid = false;
-    if (material) {
-      GroundReactions->SetStaticFFactor((*material).get_friction_factor());
-      GroundReactions->SetRollingFFactor((*material).get_rolling_friction()/0.02);
-      // 1 Pascal = 0.00014503773800721815 lbs/in^2
-      double pressure = (*material).get_load_resistance(); // N/m^2 (or Pascal)
-      GroundReactions->SetMaximumForce(pressure*0.00014503773800721815);
-
-      GroundReactions->SetBumpiness((*material).get_bumpiness());
-      GroundReactions->SetSolid((*material).get_solid());
-      GroundReactions->SetPosition(pt);
-      material_valid = true;
-    } else {
-       if (material_valid) {
-         GroundReactions->resetValues();
-         material_valid = false;
-      }
-    }
-  }
-#else
-  terrain->setBoolValue("valid", false);
-#endif
-  return true;
+   const simgear::BVHMaterial* material;
+   simgear::BVHNode::Id id;
+   if (!FGInterface::get_agl_ft(t, pt, alt_off, contact, normal, vel,
+                                angularVel, material, id))
+       return false;
+   SGGeod geodPt = SGGeod::fromCart(SG_FEET_TO_METER*SGVec3d(pt));
+   SGQuatd hlToEc = SGQuatd::fromLonLat(geodPt);
+   *agl = dot(hlToEc.rotate(SGVec3d(0, 0, 1)), SGVec3d(contact) - SGVec3d(pt));
+   return true;
 }
 
 inline static double sqr(double x)

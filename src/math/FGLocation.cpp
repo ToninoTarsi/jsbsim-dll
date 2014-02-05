@@ -47,8 +47,8 @@ INCLUDES
 
 namespace JSBSim {
 
-IDENT(IdSrc,"$Id: FGLocation.cpp,v 1.32 2014/01/13 10:46:03 ehofman Exp $");
-IDENT(IdHdr,ID_LOCATION);
+static const char *IdSrc = "$Id: FGLocation.cpp 16671 2014-01-07 12:06:05Z dolan.paul $";
+static const char *IdHdr = ID_LOCATION;
 using std::cerr;
 using std::endl;
 

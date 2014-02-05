@@ -23,10 +23,12 @@
 #include "FGFDMExec.h"
 #include "models/FGInertial.h"
 
+#include "JSBSimLib.h"
+
 namespace JSBSim
 {
 
-class FGTrimmer : public FGNelderMead::Function
+class JSBSIM_API FGTrimmer : public FGNelderMead::Function
 {
 public:
     struct Constraints

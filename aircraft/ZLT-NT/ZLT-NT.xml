@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- $Id: ZLT-NT.xml,v 1.3 2010/04/02 22:18:37 andgi Exp $ -->
+<!-- $Id: ZLT-NT.xml 16671 2014-01-07 12:06:05Z dolan.paul $ -->
 <!--
 
   ZLT NT airship flight model for JSBSim.
@@ -32,7 +32,7 @@
   <email>anders at gidenstam dot org</email>
 
   <filecreationdate>2008-06-10</filecreationdate>
-  <version>$Id: ZLT-NT.xml,v 1.3 2010/04/02 22:18:37 andgi Exp $</version>
+  <version>$Id: ZLT-NT.xml 16671 2014-01-07 12:06:05Z dolan.paul $</version>
 
   <description>JSBSim model of a NT-07 airship.</description>
 

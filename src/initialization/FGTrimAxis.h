@@ -44,11 +44,13 @@ INCLUDES
 #include "FGJSBBase.h"
 #include "FGInitialCondition.h"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_TRIMAXIS "$Id: FGTrimAxis.h,v 1.7 2013/11/24 16:53:15 bcoconni Exp $"
+#define ID_TRIMAXIS "$Id: FGTrimAxis.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 #define DEFAULT_TOLERANCE 0.001
 
@@ -86,7 +88,7 @@ enum State { tAll,tUdot,tVdot,tWdot,tQdot,tPdot,tRdot,tHmgt,tNlf };
 enum Control { tThrottle, tBeta, tAlpha, tElevator, tAileron, tRudder, tAltAGL,
                tTheta, tPhi, tGamma, tPitchTrim, tRollTrim, tYawTrim, tHeading };
 
-class FGTrimAxis : public FGJSBBase
+class JSBSIM_API FGTrimAxis : public FGJSBBase
 {
 public:
   /**  Constructor for Trim Axis class.

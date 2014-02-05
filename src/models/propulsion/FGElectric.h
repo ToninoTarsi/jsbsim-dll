@@ -40,11 +40,13 @@ INCLUDES
 
 #include "FGEngine.h"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_ELECTRIC "$Id: FGElectric.h,v 1.13 2014/01/12 14:22:56 ehofman Exp $"
+#define ID_ELECTRIC "$Id: FGElectric.h 16671 2014-01-07 12:06:05Z dolan.paul $";
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -64,14 +66,14 @@ CLASS DOCUMENTATION
     there is no battery model available, so this motor does not consume any
     energy.  There is no internal friction.
     @author David Culp
-    @version "$Id: FGElectric.h,v 1.13 2014/01/12 14:22:56 ehofman Exp $"
+    @version "$Id: FGElectric.h 16671 2014-01-07 12:06:05Z dolan.paul $"
   */
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGElectric : public FGEngine
+class JSBSIM_API FGElectric : public FGEngine
 {
 public:
   /// Constructor

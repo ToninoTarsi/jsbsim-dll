@@ -7,7 +7,6 @@ set(JSBSIM_MODELS_SRC FGAerodynamics.cpp
                       FGAtmosphere.cpp
                       FGAuxiliary.cpp
                       FGFCS.cpp
-                      FGSurface.cpp
                       FGGroundReactions.cpp
                       FGInertial.cpp
                       FGLGear.cpp
@@ -28,7 +27,6 @@ set(JSBSIM_MODELS_HDR FGAerodynamics.h
                       FGAtmosphere.h
                       FGAuxiliary.h
                       FGFCS.h
-                      FGSurface.h
                       FGGroundReactions.h
                       FGInertial.h
                       FGLGear.h
@@ -45,7 +43,19 @@ set(JSBSIM_MODELS_HDR FGAerodynamics.h
                       FGAccelerations.h
                       FGFCSChannel.h)
 
-add_library(Models OBJECT ${JSBSIM_MODELS_HDR} ${JSBSIM_MODELS_SRC})
+add_library(Models ${JSBSIM_MODELS_HDR} ${JSBSIM_MODELS_SRC})
+set_target_properties (Models PROPERTIES
+                              VERSION ${LIBRARY_VERSION})
+if(BUILD_SHARED_LIBS)
+  set_target_properties (Models PROPERTIES
+                                SOVERSION ${LIBRARY_SOVERSION}
+                                FRAMEWORK ON)
+endif()
 
+install(TARGETS Models LIBRARY DESTINATION lib
+                       ARCHIVE DESTINATION lib
+                       RUNTIME DESTINATION lib
+                       # For Mac
+                       FRAMEWORK DESTINATION "/Library/Frameworks")
 install(FILES ${JSBSIM_MODELS_HDR} DESTINATION include/JSBSim/models)
 

@@ -37,7 +37,6 @@ HISTORY
 INCLUDES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#include "FGJSBBase.h"
 #include "FGColumnVector3.h"
 #include <iostream>
 #include <sstream>
@@ -48,8 +47,8 @@ using namespace std;
 
 namespace JSBSim {
 
-IDENT(IdSrc,"$Id: FGColumnVector3.cpp,v 1.17 2014/01/13 10:46:03 ehofman Exp $");
-IDENT(IdHdr,ID_COLUMNVECTOR3);
+static const char *IdSrc = "$Id: FGColumnVector3.cpp 16671 2014-01-07 12:06:05Z dolan.paul $";
+static const char *IdHdr = ID_COLUMNVECTOR3;
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS IMPLEMENTATION

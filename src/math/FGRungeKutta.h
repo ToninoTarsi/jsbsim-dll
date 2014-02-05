@@ -40,11 +40,13 @@ SENTRY
 
 // #include "FGJSBBase.h" // later
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
   DEFINITIONS
   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_RUNGEKUTTA "$Id: FGRungeKutta.h,v 1.1 2010/06/02 04:05:13 jberndt Exp $"
+#define ID_RUNGEKUTTA "$Id: FGRungeKutta.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 namespace JSBSim {
 
@@ -71,7 +73,7 @@ DECLARATION: FGRungeKuttaProblem
 /**
    Abstract base for the function to solve.
 */
-class FGRungeKuttaProblem {
+class JSBSIM_API FGRungeKuttaProblem {
   public:
     virtual double pFunc(double x, double y) = 0;
 };
@@ -83,7 +85,7 @@ DECLARATION: FGRungeKutta
    Abstract base.
 */
 
-class FGRungeKutta {
+class JSBSIM_API FGRungeKutta {
 
   public:
 
@@ -138,7 +140,7 @@ DECLARATION: FGRK4
   Classical RK4.
 */
 
-class FGRK4 : public FGRungeKutta {
+class JSBSIM_API FGRK4 : public FGRungeKutta {
     virtual ~FGRK4();
   private:
     double approximate(double x, double y);
@@ -161,7 +163,7 @@ DECLARATION: FGRKFehlberg
 */
 
 
-class FGRKFehlberg : public FGRungeKutta {
+class JSBSIM_API FGRKFehlberg : public FGRungeKutta {
 
   public:
     FGRKFehlberg() : shrink_avail(4), epsilon(1e-12) { };
@@ -178,8 +180,14 @@ class FGRKFehlberg : public FGRungeKutta {
     int    shrink_avail;
     double epsilon;
 
-    static const double A2[], A3[], A4[], A5[], A6[];
-    static const double B[],  Bs[], C[];
+    static const double A2[];
+	static const double A3[];
+	static const double A4[];
+	static const double A5[];
+	static const double A6[];
+    static const double B[];
+	static const double Bs[];
+	static const double C[];
 
 };
 

@@ -40,11 +40,13 @@ INCLUDES
 #include "FGFCSComponent.h"
 #include "math/FGFunction.h"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_FCSFUNCTION "$Id: FGFCSFunction.h,v 1.9 2013/11/24 11:40:57 bcoconni Exp $"
+#define ID_FCSFUNCTION "$Id: FGFCSFunction.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -104,14 +106,14 @@ a function (from an aero specification):
 </function>
 @endcode
 
-    @version $Id: FGFCSFunction.h,v 1.9 2013/11/24 11:40:57 bcoconni Exp $
+    @version $Id: FGFCSFunction.h 16671 2014-01-07 12:06:05Z dolan.paul $
 */
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGFCSFunction  : public FGFCSComponent
+class JSBSIM_API FGFCSFunction  : public FGFCSComponent
 {
 public:
   FGFCSFunction(FGFCS* fcs, Element* element);

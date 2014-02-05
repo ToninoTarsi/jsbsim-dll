@@ -40,11 +40,13 @@ INCLUDES
 #include <string>
 #include "FGFCSComponent.h"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_WAYPOINT "$Id: FGWaypoint.h,v 1.2 2013/11/15 22:43:02 bcoconni Exp $"
+#define ID_WAYPOINT "$Id: FGWaypoint.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -92,14 +94,14 @@ CLASS DOCUMENTATION
     @endcode
 
     @author Jon S. Berndt
-    @version $Id: FGWaypoint.h,v 1.2 2013/11/15 22:43:02 bcoconni Exp $
+    @version $Id: FGWaypoint.h 16671 2014-01-07 12:06:05Z dolan.paul $
 */
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGWaypoint  : public FGFCSComponent
+class JSBSIM_API FGWaypoint  : public FGFCSComponent
 {
 public:
   FGWaypoint(FGFCS* fcs, Element* element);

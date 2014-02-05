@@ -32,10 +32,12 @@
 #include <iostream>
 #include <limits>
 
+#include "JSBSimLib.h"
+
 namespace JSBSim
 {
 
-class FGStateSpace
+class JSBSIM_API FGStateSpace
 {
 public:
 

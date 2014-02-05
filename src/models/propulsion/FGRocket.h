@@ -42,11 +42,13 @@ INCLUDES
 #include "math/FGTable.h"
 #include "math/FGFunction.h"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_ROCKET "$Id: FGRocket.h,v 1.20 2013/11/24 11:40:57 bcoconni Exp $"
+#define ID_ROCKET "$Id: FGRocket.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -118,7 +120,7 @@ for the rocket engine to be throttle up to 1. At that time, the solid rocket
 fuel begins burning and thrust is provided.
 
     @author Jon S. Berndt
-    $Id: FGRocket.h,v 1.20 2013/11/24 11:40:57 bcoconni Exp $
+    $Id: FGRocket.h 16671 2014-01-07 12:06:05Z dolan.paul $
     @see FGNozzle,
     FGThruster,
     FGForce,
@@ -129,7 +131,7 @@ fuel begins burning and thrust is provided.
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGRocket : public FGEngine
+class JSBSIM_API FGRocket : public FGEngine
 {
 public:
   /** Constructor.

@@ -46,8 +46,8 @@ INCLUDES
 
 namespace JSBSim {
 
-IDENT(IdSrc,"$Id: FGOutputType.cpp,v 1.10 2014/01/13 10:46:00 ehofman Exp $");
-IDENT(IdHdr,ID_OUTPUTTYPE);
+static const char *IdSrc = "$Id: FGOutputType.cpp 16671 2014-01-07 12:06:05Z dolan.paul $";
+static const char *IdHdr = ID_OUTPUTTYPE;
 
 using namespace std;
 

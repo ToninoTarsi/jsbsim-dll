@@ -50,8 +50,8 @@ using std::max;
 
 namespace JSBSim {
 
-IDENT(IdSrc,"$Id: FGGasCell.cpp,v 1.20 2014/01/13 10:46:07 ehofman Exp $");
-IDENT(IdHdr,ID_GASCELL);
+static const char *IdSrc = "$Id: FGGasCell.cpp 16671 2014-01-07 12:06:05Z dolan.paul $";
+static const char *IdHdr = ID_GASCELL;
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS IMPLEMENTATION

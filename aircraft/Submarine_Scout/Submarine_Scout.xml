@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- $Id: Submarine_Scout.xml,v 1.10 2009/04/14 19:33:22 andgi Exp $ -->
+<!-- $Id: Submarine_Scout.xml 16671 2014-01-07 12:06:05Z dolan.paul $ -->
 <!--
 
   Submarine Scout airship flight model for JSBSim.
@@ -35,7 +35,7 @@
   <license licenseName="GPL"
            licenseURL="http://www.gnu.org/licenses/gpl.html"/>
   <filecreationdate>2007-02-11</filecreationdate>
-  <version>$Id: Submarine_Scout.xml,v 1.10 2009/04/14 19:33:22 andgi Exp $</version>
+  <version>$Id: Submarine_Scout.xml 16671 2014-01-07 12:06:05Z dolan.paul $</version>
 
   <reference refID="Freeman:1932:Akron"
              author="Hugh B. Freeman"

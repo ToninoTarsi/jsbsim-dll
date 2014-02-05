@@ -86,8 +86,8 @@ INCLUDES
 
 namespace JSBSim {
 
-IDENT(IdSrc,"$Id: FGTrimAnalysis.cpp,v 1.16 2014/01/13 10:46:00 ehofman Exp $");
-IDENT(IdHdr,ID_FGTRIMANALYSIS);
+static const char *IdSrc = "$Id: FGTrimAnalysis.cpp 16671 2014-01-07 12:06:05Z dolan.paul $";
+static const char *IdHdr = ID_FGTRIMANALYSIS;
 
 
     /** Wrapping function for the effective Full Trim cost function, to be called by optimization method

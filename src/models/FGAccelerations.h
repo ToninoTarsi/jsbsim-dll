@@ -46,11 +46,13 @@ INCLUDES
 #include "math/FGMatrix33.h"
 #include "math/FGQuaternion.h"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_ACCELERATIONS "$Id: FGAccelerations.h,v 1.15 2013/11/29 18:56:30 jberndt Exp $"
+#define ID_ACCELERATIONS "$Id: FGAccelerations.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -97,14 +99,14 @@ CLASS DOCUMENTATION
          NASA SP-8024, May 1969
 
     @author Jon S. Berndt, Mathias Froehlich, Bertrand Coconnier
-    @version $Id: FGAccelerations.h,v 1.15 2013/11/29 18:56:30 jberndt Exp $
+    @version $Id: FGAccelerations.h 16671 2014-01-07 12:06:05Z dolan.paul $
   */
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGAccelerations : public FGModel {
+class JSBSIM_API FGAccelerations : public FGModel {
 public:
   /** Constructor.
       @param Executive a pointer to the parent executive object */

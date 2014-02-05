@@ -45,11 +45,13 @@ INCLUDES
 
 #include "FGColumnVector3.h"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_MATRIX33 "$Id: FGMatrix33.h,v 1.17 2012/11/22 22:04:06 bcoconni Exp $"
+#define ID_MATRIX33 "$Id: FGMatrix33.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -71,7 +73,7 @@ CLASS DOCUMENTATION
 DECLARATION: MatrixException
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class MatrixException //: public FGJSBBase
+class JSBSIM_API MatrixException //: public FGJSBBase
 {
 public:
   std::string Message;
@@ -89,7 +91,7 @@ CLASS DOCUMENTATION
 DECLARATION: FGMatrix33
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGMatrix33
+class JSBSIM_API FGMatrix33
 {
 public:
 

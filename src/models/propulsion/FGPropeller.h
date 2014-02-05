@@ -41,11 +41,13 @@ INCLUDES
 #include "FGThruster.h"
 #include "math/FGTable.h"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_PROPELLER "$Id: FGPropeller.h,v 1.21 2013/11/15 22:43:03 bcoconni Exp $"
+#define ID_PROPELLER "$Id: FGPropeller.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -142,7 +144,7 @@ CLASS DOCUMENTATION
     <li>Various NACA Technical Notes and Reports</li>
     </ul>
     @author Jon S. Berndt
-    @version $Id: FGPropeller.h,v 1.21 2013/11/15 22:43:03 bcoconni Exp $
+    @version $Id: FGPropeller.h 16671 2014-01-07 12:06:05Z dolan.paul $
     @see FGEngine
     @see FGThruster
 */
@@ -151,7 +153,7 @@ CLASS DOCUMENTATION
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGPropeller : public FGThruster {
+class JSBSIM_API FGPropeller : public FGThruster {
 
 public:
   /** Constructor for FGPropeller.

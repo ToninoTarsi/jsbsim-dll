@@ -16,6 +16,8 @@
 #include <time.h> // time_t
 #include <simgear/misc/stdint.hxx>
 
+#include "JSBSimLib.h"
+
 // NOTE: this file defines an external interface structure.  Due to
 // variability between platforms and architectures, we only used fixed
 // length types here.  Specifically, integer types can vary in length.
@@ -28,7 +30,7 @@ const uint32_t FG_NET_FDM_VERSION = 24;
 // Define a structure containing the top level flight dynamics model
 // parameters
 
-class FGNetFDM {
+class JSBSIM_API FGNetFDM {
 
 public:
 

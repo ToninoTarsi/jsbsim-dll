@@ -41,11 +41,13 @@ INCLUDES
 #include <vector>
 #include "models/FGModel.h"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_ATMOSPHERE "$Id: FGAtmosphere.h,v 1.31 2012/08/20 12:28:50 jberndt Exp $"
+#define ID_ATMOSPHERE "$Id: FGAtmosphere.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -74,14 +76,14 @@ CLASS DOCUMENTATION
   @property atmosphere/a-ratio
 
   @author Jon Berndt
-  @version $Id: FGAtmosphere.h,v 1.31 2012/08/20 12:28:50 jberndt Exp $
+  @version $Id: FGAtmosphere.h 16671 2014-01-07 12:06:05Z dolan.paul $
 */
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGAtmosphere : public FGModel {
+class JSBSIM_API FGAtmosphere : public FGModel {
 public:
 
   /// Enums for specifying temperature units.

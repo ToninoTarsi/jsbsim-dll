@@ -39,11 +39,13 @@ INCLUDES
 
 #include "FGFCSComponent.h"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_DEADBAND "$Id$"
+#define ID_DEADBAND "$Id: FGDeadBand.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -79,14 +81,14 @@ CLASS DOCUMENTATION
     produce no output. For example, say that the width value is 2.0. If the
     input is between -1.0 and +1.0, the output will be zero.
     @author Jon S. Berndt
-    @version $Id$
+    @version $Id: FGDeadBand.h 16671 2014-01-07 12:06:05Z dolan.paul $
 */
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGDeadBand  : public FGFCSComponent
+class JSBSIM_API FGDeadBand  : public FGFCSComponent
 {
 public:
   FGDeadBand(FGFCS* fcs, Element* element);

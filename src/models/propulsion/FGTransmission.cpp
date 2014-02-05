@@ -48,8 +48,8 @@ using std::endl;
 
 namespace JSBSim {
 
-IDENT(IdSrc,"$Id: FGTransmission.cpp,v 1.4 2014/01/13 10:46:10 ehofman Exp $");
-IDENT(IdHdr,ID_TRANSMISSION);
+static const char *IdSrc = "$Id: FGTransmission.cpp 16671 2014-01-07 12:06:05Z dolan.paul $";
+static const char *IdHdr = ID_TRANSMISSION;
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS IMPLEMENTATION

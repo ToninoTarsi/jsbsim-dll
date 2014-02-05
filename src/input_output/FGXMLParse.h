@@ -36,11 +36,13 @@ INCLUDES
 
 #include "simgear/xml/easyxml.hxx"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_XMLPARSE "$Id: FGXMLParse.h,v 1.8 2013/11/15 22:43:00 bcoconni Exp $"
+#define ID_XMLPARSE "$Id: FGXMLParse.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 #define VALID_CHARS """`!@#$%^&*()_+`1234567890-={}[];':,.<>/?abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -57,14 +59,14 @@ CLASS DOCUMENTATION
 
 /** Encapsulates an XML parser based on the EasyXML parser from the SimGear library.
     @author Jon S. Berndt
-    @version $Id: FGXMLParse.h,v 1.8 2013/11/15 22:43:00 bcoconni Exp $
+    @version $Id: FGXMLParse.h 16671 2014-01-07 12:06:05Z dolan.paul $
 */
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGXMLParse : public XMLVisitor
+class JSBSIM_API FGXMLParse : public XMLVisitor
 {
 public:
   FGXMLParse(void);

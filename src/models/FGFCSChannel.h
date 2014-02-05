@@ -40,11 +40,13 @@ INCLUDES
 
 #include <iostream>
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_FCSCHANNEL "$Id: FGFCSChannel.h,v 1.4 2013/12/22 15:21:51 bcoconni Exp $"
+#define ID_FCSCHANNEL "$Id: FGFCSChannel.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -67,7 +69,7 @@ CLASS DECLARATION
 
 typedef std::vector <FGFCSComponent*> FCSCompVec;
 
-class FGFCSChannel {
+class JSBSIM_API FGFCSChannel {
 public:
   /// Constructor
   FGFCSChannel(string name, FGPropertyNode* node=0) :

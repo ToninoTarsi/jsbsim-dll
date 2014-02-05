@@ -32,9 +32,11 @@
 #include <fstream>
 #include <cstdlib>
 
+#include "JSBSimLib.h"
+
 namespace JSBSim {
 
-class FGLinearization
+class JSBSIM_API FGLinearization
 {
 public:
     FGLinearization(FGFDMExec * fdmPtr, int mode);

@@ -38,11 +38,13 @@ INCLUDES
 #include "FGParameter.h"
 #include "input_output/FGPropertyManager.h"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_PROPERTYVALUE "$Id: FGPropertyValue.h,v 1.11 2013/09/27 19:43:01 jberndt Exp $"
+#define ID_PROPERTYVALUE "$Id: FGPropertyValue.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -62,7 +64,7 @@ CLASS DOCUMENTATION
 DECLARATION: FGPropertyValue
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGPropertyValue : public FGParameter
+class JSBSIM_API FGPropertyValue : public FGParameter
 {
 public:
 

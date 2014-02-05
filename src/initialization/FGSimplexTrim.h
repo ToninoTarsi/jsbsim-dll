@@ -32,9 +32,11 @@
 #include <fstream>
 #include <cstdlib>
 
+#include "JSBSimLib.h"
+
 namespace JSBSim {
 
-class FGSimplexTrim
+class JSBSIM_API FGSimplexTrim
 {
 public:
     FGSimplexTrim(FGFDMExec * fdmPtr, TrimMode mode);

@@ -49,16 +49,14 @@ using namespace std;
 
 namespace JSBSim {
 
-IDENT(IdSrc,"$Id: FGGroundReactions.cpp,v 1.49 2014/01/28 09:42:21 ehofman Exp $");
-IDENT(IdHdr,ID_GROUNDREACTIONS);
+static const char *IdSrc = "$Id: FGGroundReactions.cpp 16671 2014-01-07 12:06:05Z dolan.paul $";
+static const char *IdHdr = ID_GROUNDREACTIONS;
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS IMPLEMENTATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-FGGroundReactions::FGGroundReactions(FGFDMExec* fgex) :
-   FGModel(fgex),
-   FGSurface(fgex)
+FGGroundReactions::FGGroundReactions(FGFDMExec* fgex) : FGModel(fgex)
 {
   Name = "FGGroundReactions";
 
@@ -114,7 +112,7 @@ bool FGGroundReactions::Run(bool Holding)
   // Perhaps there is some commonality for things which only need to be
   // calculated once.
   for (unsigned int i=0; i<lGear.size(); i++) {
-    vForces  += lGear[i]->GetBodyForces(this);
+    vForces  += lGear[i]->GetBodyForces();
     vMoments += lGear[i]->GetMoments();
   }
 
@@ -263,9 +261,6 @@ string FGGroundReactions::GetGroundReactionValues(string delimeter) const
 
 void FGGroundReactions::bind(void)
 {
-  eSurfaceType = ctGROUND;
-  FGSurface::bind();
-
   PropertyManager->Tie("gear/num-units", this, &FGGroundReactions::GetNumGearUnits);
   PropertyManager->Tie("gear/wow", this, &FGGroundReactions::GetWOW);
 }

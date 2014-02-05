@@ -41,11 +41,13 @@ INCLUDES
 #include "simgear/structure/SGReferenced.hxx"
 #include "simgear/structure/SGSharedPtr.hxx"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_GROUNDCALLBACK "$Id: FGGroundCallback.h,v 1.16 2013/02/02 13:23:40 bcoconni Exp $"
+#define ID_GROUNDCALLBACK "$Id: FGGroundCallback.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 namespace JSBSim {
 
@@ -62,14 +64,14 @@ CLASS DOCUMENTATION
     ball formed earth with an adjustable terrain elevation.
 
     @author Mathias Froehlich
-    @version $Id: FGGroundCallback.h,v 1.16 2013/02/02 13:23:40 bcoconni Exp $
+    @version $Id: FGGroundCallback.h 16671 2014-01-07 12:06:05Z dolan.paul $
 */
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGGroundCallback : public SGReferenced
+class JSBSIM_API FGGroundCallback : public SGReferenced
 {
 public:
 

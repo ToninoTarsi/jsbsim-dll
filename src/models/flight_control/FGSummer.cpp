@@ -45,8 +45,8 @@ using namespace std;
 
 namespace JSBSim {
 
-IDENT(IdSrc,"$Id: FGSummer.cpp,v 1.10 2014/01/13 10:46:10 ehofman Exp $");
-IDENT(IdHdr,ID_SUMMER);
+static const char *IdSrc = "$Id: FGSummer.cpp 16671 2014-01-07 12:06:05Z dolan.paul $";
+static const char *IdHdr = ID_SUMMER;
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS IMPLEMENTATION

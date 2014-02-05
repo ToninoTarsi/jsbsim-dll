@@ -44,12 +44,11 @@ INCLUDES
 #include <vector>
 #include <stdio.h>
 
-
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_STRINGUTILS "$Id: string_utilities.h,v 1.19 2014/01/29 13:30:11 ehofman Exp $"
+#define ID_STRINGUTILS "$Id: string_utilities.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -73,14 +72,10 @@ CLASS DECLARATION
   extern std::string& to_lower(std::string& str);
   extern bool is_number(const std::string& str);
   std::vector <std::string> split(std::string str, char d);
-
-  // libc++ has these as built-ins for all C++ language versions
-#if !defined(_LIBCPP_VERSION)
+/* Comment out to_string functions when they are defined already - C++ 11 defines these */
   extern std::string to_string(int);
   extern std::string to_string(double);
   extern std::string to_string(float);
-#endif
-
   extern std::string replace(std::string str, const std::string& old, const std::string& newstr);
 #else
   #include <cctype>

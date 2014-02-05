@@ -8,7 +8,7 @@
         <author> Dave Culp </author>
         <author> Aeromatic </author>
         <filecreationdate> 2006-01-04 </filecreationdate>
-        <version>$Revision: 1.40 $</version>
+        <version>$Revision: 16671 $</version>
         <description> Models a Boeing 737. </description>
         <license>
           <licenseName>GPL (General Public License)</licenseName>

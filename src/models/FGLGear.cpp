@@ -62,8 +62,8 @@ DEFINITIONS
 GLOBAL DATA
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-IDENT(IdSrc,"$Id: FGLGear.cpp,v 1.115 2014/01/29 13:30:11 ehofman Exp $");
-IDENT(IdHdr,ID_LGEAR);
+static const char *IdSrc = "$Id: FGLGear.cpp 16671 2014-01-07 12:06:05Z dolan.paul $";
+static const char *IdHdr = ID_LGEAR;
 
 // Body To Structural (body frame is rotated 180 deg about Y and lengths are given in
 // ft instead of inches)
@@ -75,7 +75,6 @@ CLASS IMPLEMENTATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
 FGLGear::FGLGear(Element* el, FGFDMExec* fdmex, int number, const struct Inputs& inputs) :
-  FGSurface(fdmex, number),
   FGForce(fdmex),
   in(inputs),
   GearNumber(number),
@@ -266,7 +265,7 @@ void FGLGear::ResetToIC(void)
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-const FGColumnVector3& FGLGear::GetBodyForces(FGSurface *surface)
+const FGColumnVector3& FGLGear::GetBodyForces(void)
 {
   double gearPos = 1.0;
   double t = fdmex->GetSimTime();
@@ -287,17 +286,8 @@ const FGColumnVector3& FGLGear::GetBodyForces(FGSurface *surface)
     // not compressed) with respect to the ground level
     double height = gearLoc.GetContactPoint(t, contact, normal, terrainVel, dummy);
 
-    // Does this surface contact point interact with another surface?
-    if (surface) {
-      height -= (*surface).GetBumpHeight();
-      staticFFactor = (*surface).GetStaticFFactor();
-      rollingFFactor = (*surface).GetRollingFFactor();
-      maximumForce = (*surface).GetMaximumForce();
-      isSolid =  (*surface).GetSolid();
-    }
-
     if (height < 0.0) {
-      WOW = isSolid;
+      WOW = true;
       vGroundNormal = in.Tec2b * normal;
 
       // The height returned by GetGroundCallback() is the AGL and is expressed
@@ -312,14 +302,8 @@ const FGColumnVector3& FGLGear::GetBodyForces(FGSurface *surface)
       // including the strut compression.
       switch(eContactType) {
       case ctBOGEY:
-        if (isSolid) {
-          compressLength = LGearProj > 0.0 ? height * normalZ / LGearProj : 0.0;
-          vWhlDisplVec = mTGear * FGColumnVector3(0., 0., -compressLength);
-        } else {
-          // Gears don't (or hardly) compress in liquids
-          compressLength = 0.0;
-          vWhlDisplVec = 0.0 * vGroundNormal;
-        }
+        compressLength = LGearProj > 0.0 ? height * normalZ / LGearProj : 0.0;
+        vWhlDisplVec = mTGear * FGColumnVector3(0., 0., -compressLength);
         break;
       case ctSTRUCTURE:
         compressLength = height * normalZ / DotProduct(normal, normal);
@@ -332,13 +316,7 @@ const FGColumnVector3& FGLGear::GetBodyForces(FGSurface *surface)
       FGColumnVector3 vBodyWhlVel = in.PQR * vWhlContactVec;
       vBodyWhlVel += in.UVW - in.Tec2b * terrainVel;
 
-      if (isSolid) {
-        vWhlVelVec = mTGear.Transposed() * vBodyWhlVel;
-      } else {
-        // wheels don't spin up in liquids: let wheel spin down slowly
-        vWhlVelVec(eX) -= 13.0 * in.TotalDeltaT;
-        if (vWhlVelVec(eX) < 0.0) vWhlVelVec(eX) = 0.0;
-      }
+      vWhlVelVec = mTGear.Transposed() * vBodyWhlVel;
 
       InitializeReporting();
       ComputeSteeringAngle();
@@ -576,10 +554,10 @@ void FGLGear::CrashDetect(void)
 
 void FGLGear::ComputeBrakeForceCoefficient(void)
 {
-  BrakeFCoeff = rollingFFactor * rollingFCoeff;
+  BrakeFCoeff = rollingFCoeff;
 
   if (eBrakeGrp != bgNone)
-    BrakeFCoeff += in.BrakePos[eBrakeGrp] * staticFFactor * (staticFCoeff - rollingFCoeff);
+    BrakeFCoeff += in.BrakePos[eBrakeGrp] * (staticFCoeff - rollingFCoeff);
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -600,7 +578,6 @@ void FGLGear::ComputeSideForceCoefficient(void)
     double StiffSlip = Stiffness*WheelSlip;
     FCoeff = Peak * sin(Shape*atan(StiffSlip - Curvature*(StiffSlip - atan(StiffSlip))));
   }
-  FCoeff *= staticFFactor;
 }
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -610,7 +587,7 @@ void FGLGear::ComputeSideForceCoefficient(void)
 // possibly give a "rebound damping factor" that differs from the compression
 // case.
 
-void FGLGear::ComputeVerticalStrutForce()
+void FGLGear::ComputeVerticalStrutForce(void)
 {
   double springForce = 0;
   double dampForce = 0;
@@ -637,10 +614,6 @@ void FGLGear::ComputeVerticalStrutForce()
     }
 
     StrutForce = min(springForce + dampForce, (double)0.0);
-    if (StrutForce > maximumForce) {
-      StrutForce = maximumForce;
-      compressLength = -StrutForce / kSpring;
-    }
   }
 
   // The reaction force of the wheel is always normal to the ground
@@ -692,7 +665,7 @@ void FGLGear::ComputeJacobian(const FGColumnVector3& vWhlContactVec)
     LMultiplier[ftDynamic].ForceJacobian = mT * velocityDirection;
     LMultiplier[ftDynamic].MomentJacobian = vWhlContactVec * LMultiplier[ftDynamic].ForceJacobian;
     LMultiplier[ftDynamic].Max = 0.;
-    LMultiplier[ftDynamic].Min = -fabs(staticFFactor * dynamicFCoeff * vFn(eZ));
+    LMultiplier[ftDynamic].Min = -fabs(dynamicFCoeff * vFn(eZ));
 
     // The Lagrange multiplier value obtained from the previous iteration is kept
     // This is supposed to accelerate the convergence of the projected Gauss-Seidel
@@ -720,7 +693,7 @@ void FGLGear::ComputeJacobian(const FGColumnVector3& vWhlContactVec)
       LMultiplier[ftSide].Max = fabs(FCoeff * vFn(eZ));
       break;
     case ctSTRUCTURE:
-      LMultiplier[ftRoll].Max = fabs(staticFFactor * staticFCoeff * vFn(eZ));
+      LMultiplier[ftRoll].Max = fabs(staticFCoeff * vFn(eZ));
       LMultiplier[ftSide].Max = LMultiplier[ftRoll].Max;
       break;
     }
@@ -774,17 +747,14 @@ void FGLGear::bind(void)
 
   switch(eContactType) {
   case ctBOGEY:
-    eSurfaceType = FGSurface::ctBOGEY;
     base_property_name = CreateIndexedPropertyName("gear/unit", GearNumber);
     break;
   case ctSTRUCTURE:
-    eSurfaceType = FGSurface::ctSTRUCTURE;
     base_property_name = CreateIndexedPropertyName("contact/unit", GearNumber);
     break;
   default:
     return;
   }
-  FGSurface::bind();
 
   property_name = base_property_name + "/WOW";
   PropertyManager->Tie( property_name.c_str(), &WOW );

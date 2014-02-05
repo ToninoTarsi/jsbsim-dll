@@ -47,6 +47,7 @@
   #include <simgear/structure/SGSharedPtr.hxx>
 #endif
 
+#include "JSBSimLib.h"
 
 #ifdef NONE
 #pragma warn A sloppy coder has defined NONE as a macro!
@@ -146,7 +147,7 @@
  * @see SGRawValueMethodsIndexed
  */
 template <class T>
-class SGRawValue
+class JSBSIM_API SGRawValue
 {
 public:
 
@@ -223,7 +224,7 @@ public:
  * pointer.
  */
 template <class T>
-class SGRawValuePointer : public SGRawValue<T>
+class JSBSIM_API SGRawValuePointer : public SGRawValue<T>
 {
 public:
 
@@ -280,7 +281,7 @@ private:
  * not have a getter.
  */
 template <class T>
-class SGRawValueFunctions : public SGRawValue<T>
+class JSBSIM_API SGRawValueFunctions : public SGRawValue<T>
 {
 public:
 
@@ -360,7 +361,7 @@ private:
  * @see SGRawValue
  */
 template <class T>
-class SGRawValueFunctionsIndexed : public SGRawValue<T>
+class JSBSIM_API SGRawValueFunctionsIndexed : public SGRawValue<T>
 {
 public:
   typedef T (*getter_t)(int);
@@ -393,7 +394,7 @@ private:
  * not have a getter.
  */
 template <class C, class T>
-class SGRawValueMethods : public SGRawValue<T>
+class JSBSIM_API SGRawValueMethods : public SGRawValue<T>
 {
 public:
   typedef T (C::*getter_t)() const;
@@ -426,7 +427,7 @@ private:
  * not have a getter.
  */
 template <class C, class T>
-class SGRawValueMethodsIndexed : public SGRawValue<T>
+class JSBSIM_API SGRawValueMethodsIndexed : public SGRawValue<T>
 {
 public:
   typedef T (C::*getter_t)(int) const;
@@ -468,7 +469,7 @@ typedef SGSharedPtr<const SGPropertyNode> SGConstPropertyNode_ptr;
  * <p>Any class that needs to listen for property changes must implement
  * this interface.</p>
  */
-class SGPropertyChangeListener
+class JSBSIM_API SGPropertyChangeListener
 {
 public:
   virtual ~SGPropertyChangeListener ();
@@ -490,7 +491,7 @@ private:
 /**
  * A node in a property tree.
  */
-class SGPropertyNode : public SGReferenced
+class JSBSIM_API SGPropertyNode : public SGReferenced
 {
 public:
 

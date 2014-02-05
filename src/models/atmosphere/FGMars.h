@@ -40,11 +40,13 @@ INCLUDES
 
 #include "models/FGAtmosphere.h"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_MARS "$Id: FGMars.h,v 1.8 2009/10/02 10:30:09 jberndt Exp $"
+#define ID_MARS "$Id: FGMars.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -58,14 +60,14 @@ CLASS DOCUMENTATION
 
 /** Models the Martian atmosphere.
     @author Jon Berndt
-    @version $Id: FGMars.h,v 1.8 2009/10/02 10:30:09 jberndt Exp $
+    @version $Id: FGMars.h 16671 2014-01-07 12:06:05Z dolan.paul $
 */
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGMars : public FGAtmosphere {
+class JSBSIM_API FGMars : public FGAtmosphere {
 public:
   /// Constructor
   FGMars(FGFDMExec*);

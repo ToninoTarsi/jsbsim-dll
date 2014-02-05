@@ -27,7 +27,19 @@ set(JSBSIM_INPUT_OUTPUT_HDR FGGroundCallback.h
                             FGOutputTextFile.h
                             FGPropertyReader.h)
 
-add_library(InputOutput OBJECT ${JSBSIM_INPUT_OUTPUT_HDR} ${JSBSIM_INPUT_OUTPUT_SRC})
+add_library(InputOutput ${JSBSIM_INPUT_OUTPUT_HDR} ${JSBSIM_INPUT_OUTPUT_SRC})
+set_target_properties (InputOutput PROPERTIES
+                                   VERSION ${LIBRARY_VERSION})
+if(BUILD_SHARED_LIBS)
+  set_target_properties (InputOutput PROPERTIES
+                                     SOVERSION ${LIBRARY_SOVERSION}
+                                     FRAMEWORK ON)
+endif()
 
+install(TARGETS InputOutput LIBRARY DESTINATION lib
+                            ARCHIVE DESTINATION lib
+                            RUNTIME DESTINATION lib
+                            # For Mac
+                            FRAMEWORK DESTINATION "/Library/Frameworks")
 install(FILES ${JSBSIM_INPUT_OUTPUT_HDR} DESTINATION include/JSBSim/input_output)
 

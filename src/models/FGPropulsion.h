@@ -45,11 +45,13 @@ INCLUDES
 #include "propulsion/FGEngine.h"
 #include "math/FGMatrix33.h"
 
+#include "JSBSimLib.h"
+
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_PROPULSION "$Id: FGPropulsion.h,v 1.32 2013/11/24 11:40:56 bcoconni Exp $"
+#define ID_PROPULSION "$Id: FGPropulsion.h 16671 2014-01-07 12:06:05Z dolan.paul $"
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 FORWARD DECLARATIONS
@@ -91,7 +93,7 @@ CLASS DOCUMENTATION
   @endcode
 
     @author Jon S. Berndt
-    @version $Id: FGPropulsion.h,v 1.32 2013/11/24 11:40:56 bcoconni Exp $
+    @version $Id: FGPropulsion.h 16671 2014-01-07 12:06:05Z dolan.paul $
     @see
     FGEngine
     FGTank
@@ -101,7 +103,7 @@ CLASS DOCUMENTATION
 CLASS DECLARATION
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-class FGPropulsion : public FGModel
+class JSBSIM_API FGPropulsion : public FGModel
 {
 public:
   /// Constructor
