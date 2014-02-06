@@ -5,6 +5,10 @@ This repo is adapted from the official JSBSim repo on sourceforge (https://sourc
 
 One of the main reasons for branching is to allow for an import library to be generated in order to link with the DLL created by JSBSim.
 
+In order to keep up to date with changes made to JSBSim, git is used to pull from a remote with url: git://git.code.sf.net/p/jsbsim/code
+
+These changes, along with our own, can then be pushed up into a remote with url: https://github.com/DolanP/jsbsim-ats.git
+
 Contents
 --------
 
