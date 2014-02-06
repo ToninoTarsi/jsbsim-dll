@@ -1,3 +1,10 @@
+Note
+----
+
+This repo is adapted from the official JSBSim repo on sourceforge (https://sourceforge.net/projects/jsbsim/)
+
+One of the main reasons for branching is to allow for an import library to be generated in order to link with the DLL created by JSBSim.
+
 Contents
 --------
 
