@@ -75,7 +75,7 @@ using namespace std;
 
 namespace JSBSim {
 
-static const char *IdSrc = "$Id: FGFDMExec.cpp 16671 2014-01-07 12:06:05Z dolan.paul $";
+static const char *IdSrc = "$Id: FGFDMExec.cpp 17146 2014-02-28 06:09:04Z dolan.paul $";
 static const char *IdHdr = ID_FDMEXEC;
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -85,11 +85,11 @@ CLASS IMPLEMENTATION
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 // Constructor
 
-FGFDMExec::FGFDMExec(FGPropertyManager* root, unsigned int* fdmctr) : Root(root), FDMctr(fdmctr)
+FGFDMExec::FGFDMExec(FGGroundCallback* groundCallback, FGPropertyManager* root, unsigned int* fdmctr) : Root(root), FDMctr(fdmctr)
 {
   Frame           = 0;
   Error           = 0;
-  SetGroundCallback(new FGDefaultGroundCallback());
+  SetGroundCallback(groundCallback);
   IC              = 0;
   Trim            = 0;
   Script          = 0;
@@ -1086,7 +1086,7 @@ bool FGFDMExec::ReadChild(Element* el)
 
   struct childData* child = new childData;
 
-  child->exec = new FGFDMExec(Root, FDMctr);
+  child->exec = new FGFDMExec(GetGroundCallback(), Root, FDMctr);
   child->exec->SetChild(true);
 
   string childAircraft = el->GetAttributeValue("name");

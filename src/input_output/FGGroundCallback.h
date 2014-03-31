@@ -47,7 +47,7 @@ INCLUDES
 DEFINITIONS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*/
 
-#define ID_GROUNDCALLBACK "$Id: FGGroundCallback.h 16671 2014-01-07 12:06:05Z dolan.paul $"
+#define ID_GROUNDCALLBACK "$Id: FGGroundCallback.h 17146 2014-02-28 06:09:04Z dolan.paul $"
 
 namespace JSBSim {
 
@@ -64,7 +64,7 @@ CLASS DOCUMENTATION
     ball formed earth with an adjustable terrain elevation.
 
     @author Mathias Froehlich
-    @version $Id: FGGroundCallback.h 16671 2014-01-07 12:06:05Z dolan.paul $
+    @version $Id: FGGroundCallback.h 17146 2014-02-28 06:09:04Z dolan.paul $
 */
 
 /*%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -130,7 +130,7 @@ typedef SGSharedPtr<FGGroundCallback> FGGroundCallback_ptr;
 // The default sphere earth implementation:
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-class FGDefaultGroundCallback : public FGGroundCallback
+class JSBSIM_API FGDefaultGroundCallback : public FGGroundCallback
 {
 public:
 
