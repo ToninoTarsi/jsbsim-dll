@@ -147,6 +147,7 @@ bool FGPropulsion::InitModel(void)
         }
         break;
       default:
+		  Engines[i]->ResetToIC();
         break;
     }
   }
