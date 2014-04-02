@@ -22,6 +22,7 @@ depcomp
 install-sh
 libtool
 ltmain.sh
+JSBSim.sdf
 missing
 build
 src/JSBSim*
