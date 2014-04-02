@@ -323,6 +323,8 @@ public:
   std::string GetThrusterLabels(int id, const std::string& delimeter);
   std::string GetThrusterValues(int id, const std::string& delimeter);
 
+  virtual void ResetToIC(void);
+
 private:
 
   // assist in parameter retrieval

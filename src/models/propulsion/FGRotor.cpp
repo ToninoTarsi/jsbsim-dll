@@ -898,6 +898,16 @@ void FGRotor::Debug(int from)
 
 }
 
+void FGRotor::ResetToIC( void )
+{
+	FGThruster::ResetToIC();
+	if (Transmission)
+	{
+		Transmission->SetEngineRPM(0.0);
+		Transmission->SetThrusterRPM(0.0);
+	}
+}
+
 
 } // namespace JSBSim
 
